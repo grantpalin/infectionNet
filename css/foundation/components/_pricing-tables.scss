@@ -1,6 +1,7 @@
 //
 // Pricing Table Variables
 //
+$include-html-pricing-classes: $include-html-classes !default;
 
 // We use this to control the border color
 $price-table-border:        solid 1px #ddd !default;
@@ -54,7 +55,7 @@ $price-cta-padding:         emCalc(20px) emCalc(20px) 0 !default;
 // We use this to create the container element for the pricing tables
 @mixin pricing-table-container {
   border: $price-table-border;
-  margin-left: 0;
+  margin-#{$default-float}: 0;
   margin-bottom: $price-table-margin-bottom;
 
   & * {
@@ -114,7 +115,7 @@ $price-cta-padding:         emCalc(20px) emCalc(20px) 0 !default;
 }
 
 
-@if $include-html-pricing-classes {
+@if $include-html-pricing-classes != false {
 
   /* Pricing Tables */
   .pricing-table {
