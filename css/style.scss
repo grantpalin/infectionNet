@@ -1,0 +1,38 @@
+// bring in files included with Foundation framework
+@import
+  "normalize",
+  "foundation";
+
+// bring in own custom files
+@import
+  "variables";
+
+// TODO properly hide assistive text for screenreaders
+.assistive-text { display: none; }
+
+a { color: $highlight; }
+
+#masthead {
+  h1 {margin-top: 0;}
+  .upper { background-color: #313131; }
+  .upper, .lower { max-width: 1200px; margin:  0 auto; }
+  .tagline { color: $highlight; font-style: italic; font-weight: bold;}
+  nav ul {
+    @include inline-list;
+    li { margin: 0; }
+    a { color: #ffffff; font-weight: bold; padding: 1em; text-transform: uppercase;
+      &:hover { background-color: #5a5a5a; }
+    }
+  }
+}
+
+#colophon {
+  color: #ffffff;
+  background-color: #afa99c;
+  padding: 1em 0;
+
+.site-info { max-width: 1200px; margin: 0 auto;}
+  a { color: #ffffff;
+  &:hover { color: #000000; }
+  }
+}

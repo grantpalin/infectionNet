@@ -4148,3 +4148,54 @@ table {
     max-width: 500px; }
   .f-dropdown.large {
     max-width: 800px; }
+
+.assistive-text {
+  display: none; }
+
+a {
+  color: #90ca67; }
+
+#masthead h1 {
+  margin-top: 0; }
+#masthead .upper {
+  background-color: #313131; }
+#masthead .upper, #masthead .lower {
+  max-width: 1200px;
+  margin: 0 auto; }
+#masthead .tagline {
+  color: #90ca67;
+  font-style: italic;
+  font-weight: bold; }
+#masthead nav ul {
+  margin: 0 0 1.0625em -1.375em;
+  padding: 0;
+  list-style: none;
+  overflow: hidden; }
+  #masthead nav ul > li {
+    list-style: none;
+    float: left;
+    margin-left: 1.375em;
+    display: block; }
+    #masthead nav ul > li > * {
+      display: block; }
+  #masthead nav ul li {
+    margin: 0; }
+  #masthead nav ul a {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 1em;
+    text-transform: uppercase; }
+    #masthead nav ul a:hover {
+      background-color: #5a5a5a; }
+
+#colophon {
+  color: #ffffff;
+  background-color: #afa99c;
+  padding: 1em 0; }
+  #colophon .site-info {
+    max-width: 1200px;
+    margin: 0 auto; }
+  #colophon a {
+    color: #ffffff; }
+    #colophon a:hover {
+      color: #000000; }
