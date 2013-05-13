@@ -9,7 +9,7 @@ get_header();
 ?>
     <div id="primary" class="content-area image-attachment">
         <div id="content" class="site-content" role="main">
-
+<?php inet_breadcrumb(); ?>
             <?php while ( have_posts() ) : the_post(); ?>
 
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

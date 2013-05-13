@@ -9,6 +9,7 @@ get_header();
 ?>
     <section id="primary" class="content-area">
         <div id="content" class="site-content" role="main">
+<?php inet_breadcrumb(); ?>
 <?php
 if ( have_posts() ) :
 ?>

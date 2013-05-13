@@ -62,6 +62,17 @@ add_action( 'edit_category', 'inet_category_transient_flusher' );
 add_action( 'save_post', 'inet_category_transient_flusher' );
 
 /**
+ * Display breadcrumb to show user the current location in the site
+ *
+ * @since infectionNet 0.1
+ */
+function inet_breadcrumb($before = '<p class="breadcrumb">', $after = '</p>') {
+    if ( function_exists( 'bcn_display' ) ) {
+        echo $before . bcn_display(true) . $after;
+    }
+}
+
+/**
  * Display navigation to next/previous pages when applicable
  *
  * @since infectionNet 0.1
