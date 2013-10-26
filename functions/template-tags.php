@@ -78,6 +78,12 @@ function inet_breadcrumb($before = '<p class="breadcrumb">', $after = '</p>') {
  * @since infectionNet 0.1
  */
 function inet_content_nav( $nav_id ) {
+	// if the PageNavi plugin is activated, use that for paging
+	if ( function_exists( 'wp_pagenavi' ) ) {
+		wp_pagenavi();
+		return;
+	}
+
     global $wp_query, $post;
 
     // don't print empty markup on single pages if there's nowhere to navigate
