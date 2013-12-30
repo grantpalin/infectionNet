@@ -21,12 +21,12 @@ if ( have_posts() ) :
 
     while ( have_posts() ) :
         the_post();
-        get_template_part( 'content', 'search' );
+        get_template_part( 'partials/content', 'search' );
     endwhile;
 
     inet_content_nav( 'nav-below' );
 else :
-    get_template_part( 'no-results', 'search' );
+    get_template_part( 'partials/no-results', 'search' );
 endif;
 ?>
         </div><!-- #content .site-content -->
