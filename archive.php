@@ -66,6 +66,6 @@ endif;
         </div><!-- #content .site-content -->
     </section><!-- #primary .content-area -->
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();
 ?>

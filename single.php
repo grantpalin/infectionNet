@@ -26,6 +26,6 @@ endwhile;
         </div><!-- #content .site-content -->
     </div><!-- #primary .content-area -->
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();
 ?>
