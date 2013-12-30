@@ -15,6 +15,7 @@ function inet_register_menus() {
     register_nav_menus(
         array(
             'primary' => __( 'Primary Menu', 'inet' ),
+            'footer' => __( 'Footer Menu', 'inet' ),
         )
     );
 }
