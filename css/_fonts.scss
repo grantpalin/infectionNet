@@ -55,6 +55,17 @@
 }
 
 @font-face {
+  font-family: 'OpenSansSemiboldItalic';
+  src: url('../fonts/OpenSans-SemiboldItalic-webfont.eot');
+  src: url('../fonts/OpenSans-SemiboldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/OpenSans-SemiboldItalic-webfont.woff') format('woff'),
+  url('../fonts/OpenSans-SemiboldItalic-webfont.ttf') format('truetype'),
+  url('../fonts/OpenSans-SemiboldItalic-webfont.svg#OpenSansBoldItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'QuicksandBold';
   src: url('../fonts/Quicksand_Bold-webfont.eot');
   src: url('../fonts/Quicksand_Bold-webfont.eot?#iefix') format('embedded-opentype'),
