@@ -26,6 +26,7 @@
                 </div><!-- .site-info -->
             </footer><!-- #colophon .site-footer -->
         </div><!-- #page .hfeed .site -->
+<?php wp_footer(); ?>
 <script>
 jQuery(document).ready(function($) {
 	// add conditional classname based on support for details / summary
@@ -36,6 +37,5 @@ jQuery(document).ready(function($) {
 	$(document).foundation();
 });
 </script>
-<?php wp_footer(); ?>
     </body>
 </html>

@@ -50,9 +50,10 @@ function inet_setup() {
 add_action( 'after_setup_theme', 'inet_setup' );
 
 function inet_enqueue_scripts_styles() {
-    // documented at http://codex.wordpress.org/Function_Reference/wp_enqueue_style
     wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', array(), null, 'all');
-}
+    wp_enqueue_script( 'jquery-details', get_template_directory_uri() . '/js/jquery.details.min.js', array('jquery'), false, true);
+    wp_enqueue_script( 'foundation', get_template_directory_uri() . '/js/foundation/foundation.js', array('jquery'), false, true);
+} // inet_enqueue_scripts_styles
 
 function inet_connection_types() {
     // ensure plugin is active, bail out if not
