@@ -36,17 +36,17 @@ function inet_setup() {
 
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
-    add_theme_support( 'post-thumbnails', array( 'post', 'page') );
+    add_theme_support( 'post-thumbnails', array( 'post', 'page', 'case', 'note', 'question', 'therapy_guideline' ) );
     // support custom background, custom header?
 
     // set custom thumbnail dimensions
-    set_post_thumbnail_size( 150, 150, true );
+    set_post_thumbnail_size( 100, 100, true );
 
     add_action( 'widgets_init', 'inet_widgets_init' );
     add_action( 'init', 'inet_register_menus' );
     add_action( 'wp_enqueue_scripts', 'inet_enqueue_scripts_styles' );
     add_action( 'p2p_init', 'inet_connection_types' );
-}
+} // inet_setup
 add_action( 'after_setup_theme', 'inet_setup' );
 
 function inet_enqueue_scripts_styles() {
