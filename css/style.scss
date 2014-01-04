@@ -1,52 +1,83 @@
 // bring in files included with Foundation framework
 @import
-  "normalize",
-  "foundation";
+	"normalize",
+	"foundation";
 
 // bring in own custom files
 @import
-  "variables",
-  "fonts";
+	"variables",
+	"fonts";
+
+// --------- generalized sitewide settings ---------
 
 body {
-  font-family: "OpenSansRegular", Verdana, sans-serif;
+	@media #{$medium} {
+		background-color: $grayLight;
+	}
+	font-family: OpenSansRegular, Verdana, sans-serif;
 }
 
 // TODO properly hide assistive text for screenreaders
 .assistive-text { display: none; }
 
-h1, h2, h3, h4, h5, h6 { font-family: QuicksandBold, Verdana, sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: QuicksandBook, Verdana, sans-serif; }
 h2 { font-size: emCalc(24px); }
 
 a { color: $highlight; }
-.entry-header {
-  background-color: $highlight;
-  margin: 0;
-  padding: 1em;
-  text-align: center;
-  h1 { font-family: QuicksandBook, Verdana, sans-serif;
-    span {
-      display: block;
-      font-family: QuicksandBold, Verdana, sans-serif; }
-  }
-  p {
-    font-family: OpenSans, Verdana, sans-serif;
-    font-size: emCalc(15px);
-    font-weight: bold;
-  }
+
+// --------- common styling across pages ---------
+
+.breadcrumb {
+	font-size: 0.7em;
+	letter-spacing: 1px;
+	margin: 0;
+	padding: 1em;
+	text-transform: uppercase;
+	
+	@media #{$medium} {
+		padding: 1.2em 1em 1.2em 3em;
+	}
 }
 
-.post-type-archive-questions {
+.entry-header, .archive-header {
+	background-color: $highlight;
+	margin: 0;
+	text-align: center;
 
+	p {
+		font-family: OpenSans, Verdana, sans-serif;
+		font-size: emCalc(15px);
+		font-weight: bold;
+	}
+	
+	@media #{$large} {
+		@include grid-row();
+	}
+	
+	.standardsub-left {
+		display: none;
+
+		@media #{$large} {
+			@include grid-column(4);
+
+			display: block;
+			padding: 2.5% 0 3% 1%;
+		}
+	}
+	
+	.standardsub-right {
+		@media #{$large} {
+			@include grid-column(8);
+		}		
+	}
 }
 
-#content {
-  border: 1px solid #e7e4dc;
-  //box-shadow: -1px -1px 3px 3px rgba(0, 0, 0, .1), 1px 1px 3px 3px rgba(0, 0, 0, .1);
-  margin: 0 1em 2em 1em;
-  @media #{$medium} {
-	@include grid-row();
-  }
+.archive-header .archive-title, .entry-header .entry-title {
+	color: #fff;
+	font-size: 2.1em;
+	line-height: 1;
+	margin: 0;
+	padding: 1em 0;
 }
 
 #masthead {
@@ -55,9 +86,7 @@ a { color: $highlight; }
 		font-family: QuicksandBook, Verdana, sans-serif;
 		font-size: emCalc(24px);
 		text-transform: uppercase;
-
 		a { color: #fff; }
-
 		b {
 			color: $highlight;
 			font-family: QuicksandBold, Verdana, sans-serif;
@@ -549,6 +578,22 @@ a { color: $highlight; }
 
 // --------- styling specific pages ---------
 
+.post {
+//	padding: 2.5em 3em;
+//	border-bottom: 1px solid #ddd;
+//	margin: 0;
+}
+.post header {
+//	font-size: 0.65em;
+}
+.post .entry-meta {
+	letter-spacing: 1px;
+	text-transform: uppercase;
+//	font-size: 0.65em;
+	font-weight: bold;
+	padding: 1em 4em;
+}
+
 .page.home {
 	.entry-header {
 		padding: 2em;
@@ -891,9 +936,47 @@ a { color: $highlight; }
 	}
 }
 
-		@include grid-column(3);
-		text-align: right;
-	  }
-	}
-  }
+// --------- specific elements ---------
+
+button, .button {
+	background: $highlight none !important;
+	border: 1px solid #5d9037;
+	color: white; 
+	cursor: pointer;
+	display: inline-block;
+	font: bold 0.75em/1 QuicksandBold, Verdana, sans-serif;
+	margin: 0 0 1.25em;
+	padding: 0.75em 1.5em 0.8125em;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+button:hover, button:focus, .button:hover, .button:focus {
+	background-color: #5d9037; color: white;
+}
+
+.entry-content-left p.browse {
+	font-family: OpenSansBold, Verdana, sans-serif;
+	font-size: 0.75em;
+	letter-spacing: 1px;
+	text-transform: uppercase; 
+	color: $highlight;
+	padding-left: 0.15em;
+	padding-bottom: 0.25em;
+	border-bottom: 3px solid $highlight;
+}
+
+article.blogposthome {
+	margin: 1em;
+}
+
+article.blogposthome header.blogsingle-header h1 a {
+	font-size: 1.5em !important; 
+}
+
+article.blogposthome header.blogsingle-header .entry-meta {
+	font-size: 0.9em;
+	padding-top: 0;
 }
