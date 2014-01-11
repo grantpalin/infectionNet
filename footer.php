@@ -27,6 +27,8 @@
             </footer><!-- #colophon .site-footer -->
         </div><!-- #page .hfeed .site -->
 <?php wp_footer(); ?>
+<script src="<?php echo get_template_directory_uri(); ?>/js/foundation/foundation.topbar.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/foundation/foundation.section.js"></script>
 <script>
 jQuery(document).ready(function($) {
 	// add conditional classname based on support for details / summary
