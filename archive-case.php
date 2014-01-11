@@ -12,13 +12,17 @@ get_header();
 <?php inet_breadcrumb(); ?>
 		<?php if ( have_posts() ) : ?>
 			<header class="archive-header">
-            	<div class="standardsub-left"><img src="<?php bloginfo('template_url'); ?>/img/header-icon-cases.png" /></div>
-                <div class="standardsub-right" style="background:url(<?php bloginfo('template_url'); ?>/img/header-image-clinical-resources.jpg) top left no-repeat;">
-                    <h1 class="archive-title"><?php _e( 'Cases', 'inet' ); ?></h1>
-                </div>
+				<div class="standardsub-left">
+					<div class="header-icon">
+						<img src="<?php bloginfo('template_url'); ?>/img/header-icon-cases.png" width="77" height="78" alt="" />
+					</div>
+				</div>
+				<div class="standardsub-right" style="background:url(<?php bloginfo('template_url'); ?>/img/header-image-clinical-resources.jpg) top left no-repeat;">
+					<h1 class="archive-title"><?php _e( 'Cases', 'inet' ); ?></h1>
+				</div>
 			</header><!-- .archive-header -->
 
-            <div class="entry-content">
+			<div class="entry-content">
 <?php
 if (!is_paged()):
 	$description = get_post_type_object(get_post_type())->description;

@@ -6,7 +6,8 @@
 // bring in own custom files
 @import
 	"variables",
-	"fonts";
+	"fonts",
+	"mixins";
 
 // --------- generalized sitewide settings ---------
 
@@ -49,27 +50,40 @@ a { color: $highlight; }
 		font-size: emCalc(15px);
 		font-weight: bold;
 	}
-	
-	@media #{$large} {
-		@include grid-row();
-	}
-	
+
 	.standardsub-left {
 		display: none;
+	}
 
-		@media #{$large} {
+	@media #{$large} {
+		@include grid-row();
+
+		.standardsub-left, .standardsub-right {
+			height: 199px;
+			position: relative;
+		}
+
+		.standardsub-left {
 			@include grid-column(4);
 
 			display: block;
-			padding: 2.5% 0 3% 1%;
+
+			.header-icon {
+				@include absolute-center();
+
+				height: 40%; // assumes image height remains at ~80px and the banner at ~200px
+			}
+		}
+
+		.standardsub-right {
+			@include grid-column(8);
+
+			.entry-title, .archive-title {
+				@include absolute-center();
+			}
 		}
 	}
-	
-	.standardsub-right {
-		@media #{$large} {
-			@include grid-column(8);
-		}		
-	}
+
 }
 
 .archive-header .archive-title, .entry-header .entry-title {

@@ -12,10 +12,14 @@ get_header();
 <?php inet_breadcrumb(); ?>
 <?php if ( have_posts() ) : ?>
 			<header class="archive-header">
-            	<div class="standardsub-left"><img src="<?php bloginfo('template_url'); ?>/img/header-icon-questions.png" /></div>
-                <div class="standardsub-right" style="background:url(<?php bloginfo('template_url'); ?>/img/header-image-clinical-resources.jpg) top left no-repeat;">
+				<div class="standardsub-left">
+					<div class="header-icon">
+						<img src="<?php bloginfo('template_url'); ?>/img/header-icon-questions.png" width="76" height="76" alt="" />
+					</div>
+				</div>
+				<div class="standardsub-right" style="background:url(<?php bloginfo('template_url'); ?>/img/header-image-clinical-resources.jpg) top left no-repeat;">
 					<h1 class="archive-title"><?php _e( 'Questions & Answers', 'inet' ); ?></h1>
-                </div>
+				</div>
 			</header><!-- .archive-header -->
 
             <div class="entry-content">

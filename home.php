@@ -13,12 +13,14 @@ get_header();
         <div id="content" class="site-content" role="main">
 <?php inet_breadcrumb(); ?>
 <header class="entry-header">
-    <div class="standardsub-left">
-        <img src="<?php bloginfo('template_url'); ?>/img/header-icon-notes.png" />
-    </div>
-    <div class="standardsub-right" style="background:url(<?php bloginfo('template_url'); ?>/img/header-image-blog.jpg) top left no-repeat;">
-        <h1 class="entry-title">infectionNet Blog</h1>
-    </div>
+	<div class="standardsub-left">
+		<div class="header-icon">
+			<img src="<?php bloginfo('template_url'); ?>/img/header-icon-notes.png" height="76" width="76" alt="" />
+		</div>
+	</div>
+	<div class="standardsub-right" style="background:url(<?php bloginfo('template_url'); ?>/img/header-image-blog.jpg) top left no-repeat;">
+		<h1 class="entry-title">infectionNet Blog</h1>
+	</div>
 </header><!-- .entry-header -->
 <?php
 if (have_posts() ):

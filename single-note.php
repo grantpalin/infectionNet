@@ -13,10 +13,14 @@ get_header();
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<header class="entry-header">
-                    <div class="standardsub-left"><img src="<?php bloginfo('template_url'); ?>/img/header-icon-notes.png" /></div>
-                    <div class="standardsub-right" style="background:url(<?php bloginfo('template_url'); ?>/img/header-image-clinical-resources.jpg) top left no-repeat;">
-                        <h1 class="entry-title"><?php the_title(); ?></h1>
-                    </div>
+					<div class="standardsub-left">
+						<div class="header-icon">
+							<img src="<?php bloginfo('template_url'); ?>/img/header-icon-notes.png" width="76" height="76" alt="" />
+						</div>
+					</div>
+					<div class="standardsub-right" style="background:url(<?php bloginfo('template_url'); ?>/img/header-image-clinical-resources.jpg) top left no-repeat;">
+						<h1 class="entry-title"><?php the_title(); ?></h1>
+					</div>
 				</header>
 
                 <div class="entry-content">
