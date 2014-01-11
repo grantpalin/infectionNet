@@ -22,64 +22,63 @@ get_header();
 				</div>
 			</header><!-- .archive-header -->
 
-            <div class="entry-content">
+			<div class="entry-content">
+				<div class="entry-content-right">
 <?php
-if (!is_paged()):
 	$description = get_post_type_object(get_post_type())->description;
 
 	if ($description):
 ?>
-<p class="intro"><?php echo $description; ?></p>
+					<p class="intro"><?php echo $description; ?></p>
 <?php
 	endif;
+
+	while ( have_posts() ) : the_post();
 ?>
-	            <!--h2>Find Therapy Guidelines</h2>
-
-				<div class="taxonomies">
+					<article id="post-<?php the_ID()?>" <?php post_class('entry-brief'); ?>>
+<?php if (has_post_thumbnail()):
+the_post_thumbnail();
+endif; ?>
+						<h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+						<div class="excerpt"><?php the_excerpt(); ?></div>
+					</article><!--#post-<?php the_ID(); ?>-->
 <?php
-$taxonomies = array (
-	'infection_types' => 'Infection Type',
-	'micro_organisms' => 'Organism Type',
-	'antibiotic_types' => 'Antibiotic Type'
-);
+	endwhile;
 
-foreach ($taxonomies as $tax => $title): ?>
-                    <div class="taxonomy">
-                        <div class="inner">
-                            <h3 class="taxonomy-name"><?php echo $title; ?></h3>
-                            <ul class="taxonomy-term-list">
-<?php echo get_post_type_terms($tax); ?>
-                            </ul>
-                        </div>
-                    </div>
-<?php endforeach; ?>
-                </div--> <!-- .taxonomies -->
-			<?php
-				while ( have_posts() ) : the_post();
-            ?>
-                <div id="post-<?php the_ID()?>" <?php post_class('entry-brief'); ?>>
-                    <h3 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-                    <div class="excerpt"><?php the_excerpt(); ?></div>
-                </div><!--#post-<?php the_ID(); ?>-->
-            <?php
-				endwhile;
-			else: // not on the archive main page, but a later page
-				while ( have_posts() ) : the_post();
-            ?>
-                <div id="post-<?php the_ID()?>" <?php post_class('entry-brief'); ?>>
-                    <h3 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-                    <div class="excerpt"><?php the_excerpt(); ?></div>
-                </div><!--#post-<?php the_ID(); ?>-->
-            <?php
-				endwhile;
-			endif; // is_paged
+	inet_content_nav( 'nav-below' );
+?>
+				</div><!-- .entry-content-right -->
 
-			inet_content_nav( 'nav-below' );
-         else :
-			get_template_part( 'content', 'none' );
-		endif; // have_posts
-        ?>
-            </div><!--.entry-content-->
+				<div class="entry-content-left">
+					<h2>Find Similar Content</h2>
+
+					<div class="taxonomies">
+<?php
+$taxonomies = array ( 'infection_types', 'micro_organisms', 'antibiotic_types' );
+
+foreach ($taxonomies as $tax):
+	$terms = get_post_type_terms($tax);
+
+	if ($terms):
+?>
+						<details class="<?php echo $tax; ?>">
+							<summary><?php echo get_taxonomy($tax)->labels->name; ?></summary>
+							<ul class="taxonomy-term-list">
+<?php echo $terms; ?>
+							</ul>
+						</details>
+<?php
+	endif;
+endforeach;
+?>
+					</div><!-- .taxonomies -->
+				</div><!-- .entry-content-left -->
+<?php
+else :
+	get_template_part( 'content', 'none' );
+endif; // have_posts
+?>
+			</div><!--.entry-content-->
 		</div><!-- #content -->
 	</section><!-- #primary .site-content -->
 <?php get_footer(); ?>
