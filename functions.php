@@ -37,6 +37,16 @@ function inet_setup() {
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
     add_theme_support( 'post-thumbnails', array( 'post', 'page', 'case', 'note', 'question', 'therapy_guideline' ) );
+	add_theme_support( 'custom-header',
+		array (
+			'flex-width' => true,
+			'flex-height' => true,
+			'width' => '800',
+			'height' => '200',
+			'default-image' => get_template_directory_uri() . '/img/header-image-clinical-resources.jpg',
+			'uploads' => true
+		)
+	);
     // support custom background, custom header?
 
     // set custom thumbnail dimensions
