@@ -61,12 +61,12 @@ function inet_connection_types() {
         return;
 
     $matches = array (
-        'post' => array ('post', 'page', 'topic', 'cases', 'notes', 'questions', 'therapy_guideline'),
-        'page' => array ('page', 'topic', 'cases', 'notes', 'questions', 'therapy_guideline'),
-        'topic' => array ('topic', 'cases', 'notes', 'questions', 'therapy_guideline'),
-        'cases' => array ('cases', 'notes', 'questions', 'therapy_guideline'),
-        'notes' => array ('notes', 'questions', 'therapy_guideline'),
-        'questions' => array ('questions', 'therapy_guideline'),
+        'post' => array ('post', 'page', 'topic', 'case', 'note', 'question', 'therapy_guideline'),
+        'page' => array ('page', 'topic', 'case', 'note', 'question', 'therapy_guideline'),
+        'topic' => array ('topic', 'case', 'note', 'question', 'therapy_guideline'),
+        'case' => array ('case', 'note', 'question', 'therapy_guideline'),
+        'note' => array ('note', 'question', 'therapy_guideline'),
+        'question' => array ('question', 'therapy_guideline'),
         'therapy_guideline' => array ('therapy_guideline')
     );
 
