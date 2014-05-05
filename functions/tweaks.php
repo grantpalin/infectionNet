@@ -25,6 +25,12 @@ add_filter( 'wp_page_menu_args', 'inet_page_menu_args' );
  * @since infectionNet 0.1
  */
 function inet_body_classes( $classes ) {
+    global $post;
+	
+    if (isset($post)) {
+        $classes[] = $post->post_type . '-' . $post->post_name;
+    }
+	
     // Adds a class of group-blog to blogs with more than 1 published author
     if ( is_multi_author() ) {
         $classes[] = 'group-blog';
