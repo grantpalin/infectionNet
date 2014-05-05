@@ -18,8 +18,6 @@
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <title><?php wp_title( '|', true, 'right' ); ?></title>
         <meta name="viewport" content="width=device-width" />
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css" media="all" />
-        <script src="<?php echo get_template_directory_uri(); ?>/js/vendor/custom.modernizr.js"></script>
         <?php wp_head(); ?>
     </head>
 
