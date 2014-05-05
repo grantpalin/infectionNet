@@ -35,7 +35,7 @@ get_header();
 
 	while ( have_posts() ) : the_post();
 ?>
-					<article id="post-<?php the_ID()?>" <?php post_class('entry-brief'); ?>>
+					<article id="post-<?php the_ID()?>" <?php post_class(); ?>>
 <?php if (has_post_thumbnail()):
 the_post_thumbnail();
 endif; ?>
@@ -50,6 +50,15 @@ endif; ?>
 				</div><!-- .entry-content-right -->
 
 				<div class="entry-content-left">
+					<h2>Case Types</h2>
+
+					<ul class="categories links-list">
+<?php
+$categories = get_post_type_terms('case_type');
+echo $categories;
+?>
+					</ul>
+
 					<h2>Find Similar Content</h2>
 
 					<div class="taxonomies">
@@ -63,7 +72,7 @@ foreach ($taxonomies as $tax):
 ?>
 						<details class="<?php echo $tax; ?>">
 							<summary><?php echo get_taxonomy($tax)->labels->name; ?></summary>
-							<ul class="taxonomy-term-list">
+							<ul class="links-list">
 <?php echo $terms; ?>
 							</ul>
 						</details>

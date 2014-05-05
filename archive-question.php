@@ -35,12 +35,8 @@ get_header();
 
 	while ( have_posts() ) : the_post();
 ?>
-					<article id="post-<?php the_ID()?>" <?php post_class('entry-brief'); ?>>
-<?php if (has_post_thumbnail()):
-the_post_thumbnail();
-endif; ?>
+					<article id="post-<?php the_ID()?>" <?php post_class(); ?>>
 						<h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-						<div class="excerpt"><?php the_excerpt(); ?></div>
 					</article><!--#post-<?php the_ID(); ?>-->
 <?php
 	endwhile;
@@ -50,6 +46,15 @@ endif; ?>
 				</div><!-- .entry-content-right -->
 
 				<div class="entry-content-left">
+					<h2>Question Types</h2>
+
+					<ul class="categories links-list">
+<?php
+$categories = get_post_type_terms('question_type');
+echo $categories;
+?>
+					</ul>
+
 					<h2>Find Similar Content</h2>
 
 					<div class="taxonomies">
@@ -63,7 +68,7 @@ foreach ($taxonomies as $tax):
 ?>
 						<details class="<?php echo $tax; ?>">
 							<summary><?php echo get_taxonomy($tax)->labels->name; ?></summary>
-							<ul class="taxonomy-term-list">
+							<ul class="links-list">
 <?php echo $terms; ?>
 							</ul>
 						</details>
