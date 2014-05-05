@@ -44,8 +44,8 @@
                 </div><!-- .upper -->
 
                 <div class="lower">
-                    <p class="tagline"><?php bloginfo( 'description' ); ?></p><!--
-                    --><?php get_search_form(); ?>
+                    <p class="tagline"><?php bloginfo( 'description' ); ?></p>
+                    <nav role="navigation"><?php wp_nav_menu( array( 'theme_location' => 'meta', 'container' => '' ) ); ?></nav>
                 </div><!-- .lower -->
             </header><!-- #masthead .site-header -->
 
