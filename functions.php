@@ -67,32 +67,3 @@ function inet_enqueue_scripts_styles() {
     wp_enqueue_script( 'jquery-details', get_template_directory_uri() . '/js/jquery.details.min.js', array('jquery'), false, true);
     wp_enqueue_script( 'foundation', get_template_directory_uri() . '/js/foundation/foundation.js', array('jquery'), false, true);
 } // inet_enqueue_scripts_styles
-
-function inet_connection_types() {
-    // ensure plugin is active, bail out if not
-    if ( !function_exists( 'p2p_register_connection_type' ) )
-        return;
-
-    $matches = array (
-        'post' => array ('post', 'page', 'topic', 'case', 'note', 'question', 'therapy_guideline'),
-        'page' => array ('page', 'topic', 'case', 'note', 'question', 'therapy_guideline'),
-        'topic' => array ('topic', 'case', 'note', 'question', 'therapy_guideline'),
-        'case' => array ('case', 'note', 'question', 'therapy_guideline'),
-        'note' => array ('note', 'question', 'therapy_guideline'),
-        'question' => array ('question', 'therapy_guideline'),
-        'therapy_guideline' => array ('therapy_guideline')
-    );
-
-    foreach ($matches as $from => $targets) {
-        foreach ($targets as $to) {
-            p2p_register_connection_type(
-                array (
-                    'name' => $from . '-related-' . $to,
-                    'from' => $from,
-                    'to' => $to,
-                    'reciprocal' => true // each pair of content types can be registered just once, works both ways
-                )
-            );
-        }
-    }
-}
