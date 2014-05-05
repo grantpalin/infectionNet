@@ -16,12 +16,12 @@
 <?php wp_nav_menu( array( 'theme_location' => 'footer', 'container' => 'div' ) ); ?>
                         <p class="copyright">Copyright 2013 Vancouver Island Health Authority, infectionNet</p>
                         <p class="armada">Site by <a href="http://armadadesign.ca/">Armada Design</a></p>
-                        <p class="twitter"><a href="#">Follow infectionNet on Twitter</a></p>
-                        <p class="newsletter"><a href="#">Sign up for our newsletter</a></p>
+                        <p class="twitter"><a href="https://twitter.com/infectionnet">Follow infectionNet on Twitter</a></p>
+                        <p class="newsletter"><a href="https://confirmsubscription.com/h/r/3D9EAD37AF5EEF6F">Sign up for our newsletter</a></p>
                     </div><!-- .meta -->
                     <div class="logos">
                         <p class="infectionnet"><img src="<?php echo get_template_directory_uri(); ?>/img/footer-infectionnet.png" width="245" height="89" alt="infectionNet" /></p>
-                        <p class="viha"><img src="<?php echo get_template_directory_uri(); ?>/img/footer-viha.png" width="157" height="83" alt="Vancouver Island Health Authority" /></p>
+                        <p class="island-health"><img src="<?php echo get_template_directory_uri(); ?>/img/footer-ih.png" width="157" height="83" alt="Island Health" /></p>
                     </div><!-- .logos -->
                 </div><!-- .site-info -->
             </footer><!-- #colophon .site-footer -->
