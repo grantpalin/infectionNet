@@ -56,3 +56,34 @@ function inet_enhanced_image_navigation( $url, $id ) {
     return $url;
 }
 add_filter( 'attachment_link', 'inet_enhanced_image_navigation', 10, 2 );
+
+/**
+ * Act before retrieval of content items in an archive to control content loading & display
+ *
+ * @since infectionNet 0.1
+ */
+function inet_pre_get_posts( $query ) {
+	// do not execute following actions if in the backend, or if not the main query
+	if ( is_admin() || !$query->is_main_query() ) return;
+
+	if (is_post_type_archive('case')) {
+		$query->set('orderby', 'title');
+		$query->set('order', 'ASC');
+	}
+
+	if (is_post_type_archive('note')) {
+		$query->set('orderby', 'title');
+		$query->set('order', 'ASC');
+	}
+
+	if (is_post_type_archive('question')) {
+		$query->set('orderby', 'date');
+		$query->set('order', 'DESC');
+	}
+
+	if (is_post_type_archive('therapy_guideline')) {
+		$query->set('orderby', 'title');
+		$query->set('order', 'ASC');
+	}
+}
+add_action( 'pre_get_posts', 'inet_pre_get_posts' );
