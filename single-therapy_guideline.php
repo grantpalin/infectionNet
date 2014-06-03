@@ -26,15 +26,42 @@ get_header();
                 <div class="entry-content">
                     <div class="entry-content-right">
                         <?php the_content(); ?>
+                        <div class="taxonomies">
+							<?php inet_tax_terms_singular(); ?>
+                        </div>
                     </div><!--.entry-content-right-->
                     <div class="entry-content-left">
-                        <div class="taxonomies">
-	                        <h2>Find Similar Content</h2>
-							<?php inet_tax_terms_singular(); ?>
-                        </div><!-- .taxonomies -->
-                        <div class="related-content">
-        	                <?php get_template_part('partials/related'); ?>
-                        </div><!-- .related-content -->
+<?php
+$categories = wp_get_post_terms(get_the_ID(), 'therapy_guideline_type');
+
+if($categories):
+	$category = $categories[0];
+?>
+<p>Category: <a href="<?php echo get_term_link($category); ?>"><?php echo $category->name; ?></a></p>
+<?php
+endif;
+?>
+<h2>Other Therapy Guidelines</h2>
+<?php
+$categories = get_categories(
+	array (
+		'type' => 'therapy_guideline',
+		'taxonomy' => 'therapy_guideline_type',
+		'hierarchical' => 0
+	)
+);
+?>
+<ul class="links-list">
+<?php
+foreach ($categories as $cat):
+?>
+<li><a href="<?php echo get_term_link($cat); ?>"><?php echo $cat->name; ?></a></li>
+<?php
+endforeach;
+?>
+</ul>
+
+<?php inet_related_content('h2', 'Related Content'); ?>
                     </div><!--.entry-content-left-->
                 </div><!-- .entry-content -->
 

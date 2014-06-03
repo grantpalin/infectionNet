@@ -25,16 +25,66 @@ get_header();
 
 				<div class="entry-content">
                     <div class="entry-content-right">
-                        <?php the_content(); ?>
+                    	<h2>Question</h2>
+                        <?php //the_content(); ?>
+                        <?php echo get_post_meta($post->ID, 'question', true); ?>
+                        <h2>Answer</h2>
+                        <?php echo get_post_meta($post->ID, 'answer', true); ?>
+                        <div class="taxonomies">
+							<?php inet_tax_terms_singular(); ?>
+                        </div>
                     </div><!--.entry-content-right-->
                     <div class="entry-content-left">
-                        <div class="taxonomies">
-	                        <h2>Find Similar Content</h2>
-							<?php inet_tax_terms_singular(); ?>
-                        </div><!-- .taxonomies -->
-                        <div class="related-content">
-        	                <?php get_template_part('partials/related'); ?>
-                        </div><!-- .related-content -->
+<?php
+$showResponder = get_post_meta($post->ID, 'show_responder', true);
+
+if ($showResponder):
+	$profile = pods('profile');
+	$params = array(
+		'where' => 'post_author = ' . get_the_author_meta('ID')
+	);
+	
+	$profile->find($params);
+
+	if($profile->getTotalRows() > 0):
+		while($profile->fetch()):
+?>
+                    	<p>Answered by <a href="<?php echo $profile->field('permalink'); ?>"><?php echo $profile->field('name'); ?></a>.</p>
+<?php
+		endwhile;
+	endif;
+endif;
+
+$categories = wp_get_post_terms(get_the_ID(), 'question_type');
+
+if($categories):
+	$category = $categories[0];
+?>
+<p>Category: <a href="<?php echo get_term_link($category); ?>"><?php echo $category->name; ?></a></p>
+<?php
+endif;
+?>
+<h2>Other Questions</h2>
+<?php
+$categories = get_categories(
+	array (
+		'type' => 'question',
+		'taxonomy' => 'question_type',
+		'hierarchical' => 0
+	)
+);
+?>
+<ul class="links-list">
+<?php
+foreach ($categories as $cat):
+?>
+<li><a href="<?php echo get_term_link($cat); ?>"><?php echo $cat->name; ?></a></li>
+<?php
+endforeach;
+?>
+</ul>
+
+<?php inet_related_content('h2', 'Related Content'); ?>
                     </div><!--.entry-content-left-->
 				</div><!-- .entry-content -->
 
