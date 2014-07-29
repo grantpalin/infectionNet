@@ -882,48 +882,59 @@ a { color: $highlight; }
 } // .page.taxonomies
 
 // generalized for custom post type archives
-.post-type-archive {
-	.taxonomies {
+.page .our-people {
+	.people {
+		list-style-type: none;
+		margin: 0;
 		overflow: auto;
 	}
-	.taxonomy {
+	.person {
+//		border: 1px solid $grayLight;
 		margin-bottom: 1em;
-		&:last-child { margin-bottom: 0; }
+		padding: 0.5em;
+		
+		@media #{$medium} {
+			float: left;
+			margin-right: 10%;
+			width: 45%;
+
+			&:nth-of-type(2n) {
+				margin-right: 0;
+			}
+		}
 
 		@media #{$large} {
-			@include grid_column(4);
+			margin-right: 5%;
+			width: 30%;
 
-			.inner {
-				margin: 0 5% 0 5%;
+			&:nth-of-type(2n) {
+				margin-right: 5%;
 			}
 
-			&:nth-child(2n) {
-				.inner { margin: 0; }
+			&:nth-of-type(3n) {
+				margin-right: 0;
 			}
-
-			&:nth-child(2n+1) {
-				clear: none;
-				.inner { margin-left: 5%; }
-			}
-
-			&:first-child .inner { margin-left: 0; }
-			&:last-child .inner { margin-right: 0; }
 		}
-
-		.inner {
-			background-color: $grayLight;
-			border: 1px solid #bababa;
-			padding-bottom: 1em;
+		
+		a {
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+			width: 200px;
+		}
+		img {
+			display: block;
+			margin: 0 auto;
 		}
 	}
-	.taxonomy-name {
-		background-color: $highlight;
-		color: #fff;
-		font-size: emCalc(22px);
-		margin: 0;
-		padding: 1em 0;
-		text-align: center;
+}
+
+.person {
+	.avatar {
+		border: 1px solid $grayLight;
+		padding: 0.5em;
 	}
+}
 	.taxonomy-term-list {
 //		list-style-type: none;
 		margin: 1em;
