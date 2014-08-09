@@ -33,4 +33,15 @@ function inet_widgets_init() {
             'after_title' => '</h1>',
         )
     );
+
+    register_sidebar(
+        array(
+            'name' => __( 'Homepage Widget Area', 'inet' ),
+            'id' => 'sidebar-homepage',
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
+        )
+    );
 }
