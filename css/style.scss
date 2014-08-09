@@ -638,6 +638,40 @@ a { color: $highlight; }
 	.section-container {
 		@include grid-row(nest);
 	}
+
+	.entry-header + .intro {
+		color: #ffffff;
+		background-image: url(../img/sub-banner-corners.png), url(../img/sub-banner-corners.png);
+		background-position: top left, top right;
+		background-repeat: no-repeat;
+		font-size: em-calc(15px);
+		font-weight: normal;
+		overflow: auto;
+		padding: 0 17px;
+		text-align: left;
+		width: auto;
+
+		.intro-inner {
+			background-color: rgb(49, 49, 49);
+			padding: 1em;
+		}
+
+		&.with-thumbnail {
+			img {
+				height: 150px;
+				width: 150px;
+				float: left;
+			}
+
+			p {
+				margin-left: 170px;
+			}
+		}
+
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
 	
 	.entry-content .widget {
 		@media #{$medium} {
