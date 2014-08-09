@@ -69,7 +69,7 @@ a { color: $highlight; }
 			display: block;
 
 			.header-icon {
-				@include absolute-center();
+				@include absolute-middle-vertical();
 
 				height: 40%; // assumes image height remains at ~80px and the banner at ~200px
 			}
@@ -79,7 +79,7 @@ a { color: $highlight; }
 			@include grid-column(8);
 
 			.entry-title, .archive-title {
-				@include absolute-center();
+				@include absolute-middle-vertical();
 			}
 		}
 	}
