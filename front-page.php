@@ -17,34 +17,7 @@ get_header();
             </header><!-- .entry-header -->
             
             <div class="entry-content">
-                <section class="latest-news">
-                    <h2>Latest News</h2>
-                    <ul>
-                        <?php
-                        $query = new WP_Query(
-                            array (
-                                'posts_per_page' => 3,
-                                'orderby' => 'date',
-                                'order' => 'DESC'
-                            )
-                        );
-        
-                        while( $query->have_posts() ):
-                            $query->next_post();
-                            echo '<li><a href="' . get_permalink( $query->post->ID ) . '">' . get_the_title( $query->post->ID ) . '</a></li>';
-                        endwhile;
-        
-                        wp_reset_postdata();
-                        ?>
-                    </ul>
-                    <p><a href="/blog/" class="go-deeper">Read more news</a></p>
-                </section><!-- .latest-news -->
-        
-                <section class="whats-happening">
-                    <h2>What's Happening In The Community</h2>
-                    <?php bbp_get_template_part( 'bbpress/content', 'archive-topic' ); ?>
-                    <p><a href="/forums/" class="go-deeper">Go to the Forums</a></p>
-                </section><!-- .whats-happening -->
+<?php dynamic_sidebar( 'sidebar-homepage' ); ?>
             </div><!-- .entry-content -->
         </div><!-- #content .site-content -->
     </div><!-- #primary .content-area -->
