@@ -36,6 +36,10 @@ function inet_body_classes( $classes ) {
         $classes[] = 'group-blog';
     }
 
+    if (is_tax()) {
+        $classes[] = 'taxonomy-archive';
+    }
+
     return $classes;
 }
 add_filter( 'body_class', 'inet_body_classes' );
