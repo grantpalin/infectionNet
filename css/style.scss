@@ -948,11 +948,10 @@ a { color: $highlight; }
 			}
 		}
 	}
-//	.children { margin-left: 0; }
-//	.children .cat-item { padding-left: 1em; }
-	.entry-brief {
-		background-color: $grayLight;
-		border: 1px solid #bababa;
+
+// generalized for custom post type and taxonomy archives as well as built-ins
+.post-type-archive, .taxonomy-archive, .category, .tag, .blog {
+	article {
 		margin-bottom: 1em;
 		overflow: auto;
 
@@ -962,11 +961,13 @@ a { color: $highlight; }
 		}
 		
 		.entry-title {
-			font-size: emCalc(17px);
+			font-size: emCalc(22px);
+			margin: 2%;
 		}
 		
 		.excerpt {
 			font-size: emCalc(14px);	
+			margin: 2%;
 		}
 
 		@media #{$medium} {
